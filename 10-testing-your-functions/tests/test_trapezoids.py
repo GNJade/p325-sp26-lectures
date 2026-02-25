@@ -13,3 +13,14 @@ def test_trapezint_hat04():
     """Can we integrate a hat function from 0 to 4 with four trapezoids?"""
     result = trapezint(hat, 0, 4)
     assert result == 1.0
+
+def test_trapezint_hat01():
+    """Can we integrate a step function from 0 to 1 with one trapezoid?"""
+    result = trapezint(hat, 0, 1)
+    assert result == 0.5
+
+def test_trapezint_sin0pi():
+    """Can we integrate a sin function from zero to pi"""
+    import numpy as np
+    result = trapezint(np.sin, 0, np.pi, n=2)
+    assert abs(1 - result/(np.pi / 2)) <= 1e-5
